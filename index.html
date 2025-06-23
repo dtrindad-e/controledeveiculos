@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gestão de Veículos</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>📋 Gestão de Veículos</h1>
+
+    <form id="vehicle-form">
+      <input type="text" id="categoria" placeholder="Categoria (ex: B, BS)" required />
+      <input type="text" id="modelo" placeholder="Modelo (ex: HB20)" required />
+      <input type="number" id="quantidade" placeholder="Quantidade" required />
+      <input type="text" id="placa" placeholder="Placa (ex: XXX-1234)" required />
+      <button type="submit">Adicionar Veículo</button>
+    </form>
+
+    <div id="vehicle-list"></div>
+    <div class="total"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
