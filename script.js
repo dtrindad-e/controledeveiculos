@@ -1,54 +1,75 @@
-body {
-  font-family: sans-serif;
-  background: #eef1f4;
-  padding: 20px;
+const vehicles = {};
+
+function getRodizio(placa) {
+    const final = placa.slice(-1);
+    const dias = {
+        "1": "Segunda-feira", "2": "Segunda-feira",
+        "3": "Terça-feira", "4": "Terça-feira",
+        "5": "Quarta-feira", "6": "Quarta-feira",
+        "7": "Quinta-feira", "8": "Quinta-feira",
+        "9": "Sexta-feira", "0": "Sexta-feira"
+    };
+    return dias[final] || "Desconhecido";
 }
 
-.container {
-  background: #fff;
-  padding: 20px;
-  max-width: 700px;
-  margin: auto;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
+const form = document.getElementById("vehicle-form");
+const listDiv = document.getElementById("vehicle-list");
+const totalDiv = document.querySelector(".total");
 
-h1 {
-  text-align: center;
-}
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 20px;
-}
+    const categoria = document.getElementById("categoria").value.toUpperCase();
+    const modelo = document.getElementById("modelo").value;
+    const placa = document.getElementById("placa").value;
 
-form input {
-  flex: 1 1 200px;
-  padding: 8px;
-}
+    if (!vehicles[categoria]) vehicles[categoria] = [];
 
-form button {
-  padding: 8px 12px;
-  background: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
+    vehicles[categoria].push({ modelo, placa });
 
-.category {
-  font-weight: bold;
-  margin-top: 20px;
-}
+    form.reset();
+    render();
+});
 
-.vehicle {
-  margin-left: 15px;
-  line-height: 1.6;
-}
+function render() {
+    listDiv.innerHTML = "";
+    let totalVeiculos = 0;
 
-.vehicle span {
-  cursor: pointer;
-  margin-left: 10px;
-  color: red;
+    const categoriasOrdenadas = Object.keys(vehicles).sort();
+
+    for (const categoria of categoriasOrdenadas) {
+        const header = document.createElement("div");
+        header.className = "category";
+        header.textContent = `Grupo: ${categoria} | Total: ${vehicles[categoria].length}`;
+        listDiv.appendChild(header);
+
+        vehicles[categoria].forEach((v, i) => {
+            const item = document.createElement("div");
+            item.className = "vehicle";
+            item.innerHTML = `
+                • ${v.modelo} (${v.placa})
+                (Rodízio: ${getRodizio(v.placa)})
+                <span onclick="removeItem('${categoria}', ${i})">🗑</span>`;
+            listDiv.appendChild(item);
+            totalVeiculos++;
+        });
+    }
+
+    let textoVeiculo;
+    if (totalVeiculos === 0) {
+        textoVeiculo = "nenhum veículo";
+    } else if (totalVeiculos === 1) {
+        textoVeiculo = "1 Veículo";
+    } else {
+        textoVeiculo = `${totalVeiculos} Veículos`;
+    }
+
+    let textoDisponivel;
+    if (totalVeiculos === 1) {
+        textoDisponivel = "disponível";
+    } else {
+        textoDisponivel = "disponíveis";
+    }
+
+    totalDiv.textContent = `📊 ${textoVeiculo} ${textoDisponivel} para locação!`;
 }
