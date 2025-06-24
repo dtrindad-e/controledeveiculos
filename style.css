@@ -1,54 +1,125 @@
 body {
-  font-family: sans-serif;
-  background: #eef1f4;
-  padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0066cc;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-  background: #fff;
-  padding: 20px;
-  max-width: 700px;
-  margin: auto;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 51, 102, 0.1);
 }
 
 h1 {
-  text-align: center;
+    text-align: center;
+    color: #003366;
+    margin-bottom: 50px;
 }
 
 form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 20px;
+    display: flexbox;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    margin: 20px;
+    text-align: center;
 }
 
-form input {
-  flex: 1 1 200px;
-  padding: 8px;
+input,
+button {
+    padding: 10px;
+    font-size: 15px;
+    border: 1px solid #cfd8dc;
+    border-radius: 5px;
+
 }
 
-form button {
-  padding: 8px 12px;
-  background: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
+button {
+    background-color: #0066cc;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+
+}
+
+button:hover {
+    background-color: #0052a3;
 }
 
 .category {
-  font-weight: bold;
-  margin-top: 20px;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #cce5ff;
+    color: #003366;
+    border-left: 5px solid #3399ff;
+    font-weight: bold;
 }
 
 .vehicle {
-  margin-left: 15px;
-  line-height: 1.6;
+    background-color: #f1f5f9;
+    padding: 8px 12px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 4px solid #007acc;
+}
+
+.total {
+    margin-top: 25px;
+    font-size: 1.1em;
+    color: #003366;
+    text-align: right;
+    font-weight: bold;
+}
+
+.vehicle::before {
+    content: "🚗";
+    margin-right: 10px;
+    text-transform: uppercase;
 }
 
 .vehicle span {
-  cursor: pointer;
-  margin-left: 10px;
-  color: red;
+    margin-left: 10px;
+    color: #cc0000;
+    cursor: pointer;
+}
+
+.vehicle:hover {
+    background-color: #e8f0fe;
+}
+
+.category::before {
+    content: "📁";
+    margin-right: 10px;
+    text-transform: uppercase;
+}
+
+.category {
+    border-left: 8px solid #00aaff;
+}
+
+.vehicle {
+    border-left: 4px solid #88c0ff;
+}
+
+footer {
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+}
+
+.caixa-alta {
+    text-transform: uppercase;
+}
+
+.caixa-alta::placeholder {
+    text-transform: none;
 }
