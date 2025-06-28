@@ -1,23 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0066cc;
+    font-family: 'Inter', sans-serif;
+    background-color: #121212;
     margin: 0;
     padding: 0;
+    color: #e0e0e0;
 }
 
 .container {
     max-width: 800px;
     margin: 40px auto;
     padding: 30px;
-    background-color: #ffffff;
+    background-color: #1e1e1e;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 51, 102, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
 }
 
 h1 {
     text-align: center;
-    color: #003366;
+    color: #ffffff;
     margin-bottom: 50px;
+    transition: color 0.3s ease;
 }
 
 form {
@@ -32,94 +37,86 @@ input,
 button {
     padding: 10px;
     font-size: 15px;
-    border: 1px solid #cfd8dc;
+    border: 1px solid #333;
     border-radius: 5px;
-
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    transition: all 0.3s ease;
 }
 
 button {
-    background-color: #0066cc;
-    color: white;
+    background-color: #333;
+    color: #ffffff;
     font-weight: 600;
     cursor: pointer;
-
 }
 
 button:hover {
-    background-color: #0052a3;
+    background-color: #555;
+    transform: scale(1.03);
 }
 
 .category {
     margin-top: 20px;
     padding: 10px;
-    background-color: #cce5ff;
-    color: #003366;
-    border-left: 5px solid #3399ff;
+    background-color: #2b2b2b;
+    color: #ffffff;
+    border-left: 8px solid #4fc3f7;
     font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
 .vehicle {
-    background-color: #f1f5f9;
+    background-color: #1f1f1f;
     padding: 8px 12px;
     margin: 5px 0;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-left: 4px solid #007acc;
+    border-left: 4px solid #4fa3f7;
+    transition: background-color 0.3s ease;
+}
+
+span {
+    cursor: pointer;
+}
+
+span:hover {
+    background-color: #ff0000;
+    transform: scale(1.03);
 }
 
 .total {
     margin-top: 25px;
     font-size: 1.1em;
-    color: #003366;
+    color: #ffffff;
     text-align: right;
     font-weight: bold;
 }
 
-.vehicle::before {
-    content: "🚗";
-    margin-right: 10px;
-    text-transform: uppercase;
-}
-
-.vehicle span {
-    margin-left: 10px;
-    color: #cc0000;
-    cursor: pointer;
-}
-
-.vehicle:hover {
-    background-color: #e8f0fe;
-}
-
+.vehicle::before,
 .category::before {
-    content: "📁";
+    content: "";
     margin-right: 10px;
-    text-transform: uppercase;
-}
-
-.category {
-    border-left: 8px solid #00aaff;
-}
-
-.vehicle {
-    border-left: 4px solid #88c0ff;
 }
 
 footer {
     text-align: center;
+}
+
+#categoria:hover {
     background-color: #ffffff;
-    border-radius: 10px;
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 30px;
+    color: #000000 !important;
+    transform: scale(1.03);
 }
 
-.caixa-alta {
-    text-transform: uppercase;
+#modelo:hover {
+    background-color: #ffffff;
+    transform: scale(1.03);
 }
 
-.caixa-alta::placeholder {
-    text-transform: none;
+#placa:hover {
+    background-color: #ffffff;
+    transform: scale(1.03);
 }
