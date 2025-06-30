@@ -113,10 +113,12 @@ footer {
 
 #modelo:hover {
     background-color: #ffffff;
+    color: #000000 !important;
     transform: scale(1.03);
 }
 
 #placa:hover {
     background-color: #ffffff;
+    color: #000000 !important;
     transform: scale(1.03);
 }
