@@ -30,4 +30,4 @@ Aplicação web interativa para **cadastro, listagem, exclusão e organização 
 
 1. Clone este repositório:
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repo.git
+git clone [https://github.com/dtrindad-e/controledeveiculos] 
