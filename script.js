@@ -3,6 +3,12 @@ const form = document.getElementById("vehicle-form");
 const listDiv = document.getElementById("vehicle-list");
 const totalDiv = document.querySelector(".total");
 
+document.querySelectorAll('input[type="text"]').forEach(input => {
+    input.addEventListener('input', () => {
+        input.value = input.value.toUpperCase();
+    });
+});
+
 // Objeto para armazenar os veículos organizados por categoria
 const vehicles = {};
 
